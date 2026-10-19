@@ -1,0 +1,734 @@
+
+/* =========================
+   RESET DAN PENGATURAN DASAR
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #173b57;
+    --secondary: #2878a8;
+    --accent: #65b8e8;
+    --background: #ffffff;
+    --muted: #f1f6fa;
+    --text: #263746;
+    --text-light: #657786;
+    --card: #ffffff;
+    --border: #dce5ec;
+    --shadow: 0 8px 25px rgba(23, 59, 87, 0.08);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+    transition: background 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    scroll-margin-top: 85px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+    padding: 10px 16px;
+    transform: translateY(-150%);
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    width: 100%;
+    background: var(--background);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-inner {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--secondary);
+}
+
+.contact-box a:not(.btn) {
+    color: var(--secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--muted);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+
+/* =========================
+   HERO / BERANDA
+========================= */
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            #dceffc 0,
+            transparent 35%
+        ),
+        var(--muted);
+    padding: 80px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.eyebrow {
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.2;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--secondary);
+}
+
+.role {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.intro {
+    max-width: 600px;
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+}
+
+.btn.primary:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn.secondary:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.socials {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.socials a {
+    color: var(--secondary);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.socials a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   FOTO PROFIL
+========================= */
+.photo-frame {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 410px;
+    margin: auto;
+    padding: 10px;
+    background: var(--background);
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+    transition: transform 0.5s;
+}
+
+.photo-frame:hover .profile-photo {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   BAGIAN UMUM
+========================= */
+.section {
+    padding: 90px 0;
+}
+
+.section h2 {
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.3;
+    color: var(--primary);
+    margin-bottom: 25px;
+}
+
+.muted {
+    background: var(--muted);
+}
+
+
+/* =========================
+   TENTANG SAYA
+========================= */
+.two-col {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.about-text p {
+    color: var(--text-light);
+    font-size: 16px;
+    text-align: justify;
+}
+
+
+/* =========================
+   KEAHLIAN
+========================= */
+#keahlian h2 {
+    margin-bottom: 35px;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--card);
+    padding: 28px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(23, 59, 87, 0.12);
+}
+
+.skill b {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.skill span {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+
+/* =========================
+   PENGALAMAN KERJA
+========================= */
+#proyek h2 {
+    margin-bottom: 40px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.project {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow-wrap: anywhere;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(23, 59, 87, 0.12);
+}
+
+.project-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #e1f2fc;
+    color: var(--secondary);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.project h3 {
+    color: var(--primary);
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.project h4 {
+    color: var(--secondary);
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.project ul {
+    padding-left: 20px;
+    color: var(--text-light);
+}
+
+.project li {
+    padding-left: 3px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.project li::marker {
+    color: var(--secondary);
+}
+
+
+/* =========================
+   KONTAK
+========================= */
+.contact {
+    background: var(--muted);
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 45px;
+    box-shadow: var(--shadow);
+}
+
+.contact-box h2 {
+    margin-bottom: 20px;
+}
+
+.contact-box p {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.contact-box strong {
+    color: var(--primary);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 25px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-inner span {
+    font-size: 14px;
+}
+
+
+/* =========================
+   MODE GELAP
+   Aktif jika body memiliki class dark-mode
+========================= */
+body.dark-mode {
+    --background: #111d29;
+    --muted: #172635;
+    --text: #e5edf4;
+    --text-light: #b1c0ce;
+    --card: #1c2c3b;
+    --border: #344656;
+    --primary: #8cccf1;
+    --secondary: #65b8e8;
+    --accent: #8cccf1;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            #203d53 0,
+            transparent 40%
+        ),
+        var(--muted);
+}
+
+body.dark-mode .hero h1,
+body.dark-mode .section h2,
+body.dark-mode .skill b,
+body.dark-mode .project h3,
+body.dark-mode .contact-box strong {
+    color: var(--primary);
+}
+
+body.dark-mode .btn.secondary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+body.dark-mode .btn.secondary:hover {
+    background: var(--primary);
+    color: #111d29;
+}
+
+body.dark-mode .project-number {
+    background: #29475c;
+    color: #b9e4ff;
+}
+
+body.dark-mode .theme-btn {
+    color: var(--text);
+    background: var(--card);
+    border-color: var(--border);
+}
+
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 900px) {
+    .container {
+        width: 90%;
+    }
+
+    .nav-inner {
+        gap: 15px;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 35px;
+    }
+
+    .photo-frame {
+        height: 350px;
+    }
+
+    .two-col {
+        gap: 35px;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .nav-inner {
+        padding: 15px 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    section {
+        scroll-margin-top: 125px;
+    }
+
+    .theme-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero {
+        padding: 55px 0;
+        min-height: auto;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .role {
+        font-size: 18px;
+    }
+
+    .intro {
+        font-size: 14px;
+    }
+
+    .buttons,
+    .socials {
+        justify-content: center;
+    }
+
+    .photo-frame {
+        max-width: 280px;
+        height: 330px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    .skill {
+        padding: 22px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .project {
+        padding: 24px;
+    }
+
+    .project h3 {
+        font-size: 19px;
+    }
+
+    .project li {
+        font-size: 13px;
+    }
+
+    .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+        gap: 25px;
+    }
+
+    .contact-box .btn {
+        width: 100%;
+    }
+
+    .footer-inner span {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
